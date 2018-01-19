@@ -1,23 +1,53 @@
-<h1>Marvel Comics</h1>
-<h4><%= @story.attribution_text %></h3>
+<div class="portal--header">
+  <h1 class="ui header">
+    <img src="https://vignette.wikia.nocookie.net/logopedia/images/a/a8/Marvel-logo.png/revision/latest/scale-to-width-down/640?cb=20140701230531.png">
+    <div class="content">
+      Marvel Comics
+      <div class="sub header"><%= @story.attribution_text %></div>
+    </div>
+  </h1>
+</div>
 
-<h2>Character Name: <%= @character.name %></h2>
-<% if @character.thumbnail %>
-<%= image_tag(@character.thumbnail, size: "200x200") %>
-<% end %>
+<div class="portal--divider"></div>
 
-<h2>Story</h2>
-<h3>Id: <%= @story.id %></h3>
-<h3>Title: <%= @story.title %></h3>
-<h3>Description: <%= @story.description %></h3>
-<% if @story.thumbnail %>
-<%= image_tag(@story.thumbnail, size: "200x200") %>
-<% end %>
+<div class="ui card">
+  <div class="image">
+    <img src="<%= @character.thumbnail %>">
+  </div>
+  <div class="content">
+    <a class="header"><%= @character.name %></a>
+    <div class="meta">
+      <span class="date">ID <%= @character.id %></span>
+    </div>
+  </div>
+</div>
 
-<h2>Story Characters</h2>
-<% @story_characters.each do |character| %>
-  <h3><%= character.name %></h3>
-  <% if character.thumbnail %>
-    <%= image_tag(character.thumbnail, size: "100x100") %>
-  <% end %>
-<% end %>
+<div class="ui cards">
+  <div class="card">
+    <div class="content">
+      <h4 class="ui header">Story</h4>
+      <div class="header"><%= @story.title %></div>
+      <div class="meta">ID <%= @story.id %></div>
+      <div class="description"><%= @story.description %></div>
+      <h4 class="ui header">Characters</h4>
+      <div class="ui two stackable cards">
+        <% @story_characters.each do |character| %>
+          <div class="ui card">
+            <div class="image">
+              <img src="<%= character.thumbnail %>">
+            </div>
+            <div class="content">
+              <a class="header"><%= character.name %></a>
+              <div class="meta">
+                <span class="date">ID <%= character.id %></span>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>  
+    </div>
+  </div>
+</div>
+
+
+  
