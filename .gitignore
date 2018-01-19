@@ -42,3 +42,7 @@ bower.json
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Credentials
+/config/config.yml
+/config/secrets.yml
