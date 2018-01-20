@@ -1,6 +1,6 @@
-<div class="portal--header">
+<div class="portal__header">
   <h1 class="ui header">
-    <img src="https://vignette.wikia.nocookie.net/logopedia/images/a/a8/Marvel-logo.png/revision/latest/scale-to-width-down/640?cb=20140701230531.png">
+    <img src="/assets/marvel_logo.png">
     <div class="content">
       Marvel Comics
       <div class="sub header">by Suzane M.</div>
@@ -8,49 +8,61 @@
   </h1>
 </div>
 
-<div class="portal--divider"></div>
+<div class="portal__divider"></div>
 
 <% if @error.present? %>
   <h1><i class="warning sign icon"></i><%= @error %> </h1>
 <% else %>
-  <div class="ui card">
-    <div class="image">
-      <img src="<%= @character.thumbnail %>">
+
+  <div class="portal__container">
+  
+    <div class="portal__card">
+
+      <div class="ui card">
+        <div class="image">
+          <img src="<%= @character.thumbnail %>">
+        </div>
+        <div class="content">
+          <a class="header"><%= @character.name %></a>
+          <div class="meta">
+            <span class="date">ID <%= @character.id %></span>
+          </div>
+        </div>
+      </div>
+
     </div>
-    <div class="content">
-      <a class="header"><%= @character.name %></a>
-      <div class="meta">
-        <span class="date">ID <%= @character.id %></span>
+
+    <div class="portal__card">
+      <h4 class="ui header">Story</h4>
+      <div class="ui card">
+        <div class="content">
+          <div class="header"><%= @story.title %></div>
+          <div class="meta">ID <%= @story.id %></div>
+          <div class="description"><%= @story.description %></div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="ui cards">
-    <div class="card">
-      <div class="content">
-        <h4 class="ui header">Story</h4>
-        <div class="header"><%= @story.title %></div>
-        <div class="meta">ID <%= @story.id %></div>
-        <div class="description"><%= @story.description %></div>
-        <h4 class="ui header">Characters</h4>
-        <div class="ui two stackable cards">
-          <% @story_characters.each do |character| %>
-            <div class="ui card">
-              <div class="image">
-                <img src="<%= character.thumbnail %>">
-              </div>
-              <div class="content">
-                <a class="header"><%= character.name %></a>
-                <div class="meta">
-                  <span class="date">ID <%= character.id %></span>
-                </div>
+    <div class="portal__card">
+      <h4 class="ui header">Characters</h4>
+      <div class="ui four cards">
+        <% @story_characters.each do |character| %>
+          <div class="ui card">
+            <div class="image">
+              <img src="<%= character.thumbnail %>">
+            </div>
+            <div class="content">
+              <a class="header"><%= character.name %></a>
+              <div class="meta">
+                <span class="date">ID <%= character.id %></span>
               </div>
             </div>
-          <% end %>
-        </div>  
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
 
-  <div><h3><%= @story.attribution_text %></h3></div>
+<div class="portal__divider"></div>
+<div class="portal__footer"><h4><%= @story.attribution_text %></h4></div>
 <% end %>

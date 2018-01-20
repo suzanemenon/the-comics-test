@@ -21,7 +21,6 @@ class MarvelApiService
     begin
       response = RestClient.get "#{api_url}#{path}", { params: params }
     rescue RestClient::ExceptionWithResponse => e
-      deugger
       case e.http_code
       when 401
         logger.warn("Code: #{e.response.code} | Message: #{e.response.message}")

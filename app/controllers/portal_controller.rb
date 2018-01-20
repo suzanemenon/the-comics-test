@@ -3,7 +3,7 @@ class PortalController < ApplicationController
 
   def index
     @error = nil
-    ch_response = MarvelApiHelper.get_character_by_name('Spider-Man')
+    ch_response = MarvelApiHelper.get_character_by_name(params[:name])
     return @error = ch_response['error'] if ch_response.key?('error')
     
     ch_response = DataParserHelper.character(ch_response)  

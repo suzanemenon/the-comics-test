@@ -5,12 +5,25 @@
 
 .portal {
  
-  &--header {
-    padding: 10px 0px;
+  &__header {
+    padding: 5px 0px;
   }
- 
-  &--divider {
+
+  &__divider {
     background-color: #E9282D;
     padding: 3px 0px;
+    margin: 5px 0px;
+  }
+
+  &__card {
+    margin: 5px;
+  }
+
+  &__container {
+    display: flex;
+  } 
+
+  &__footer {
+    margin: 5px 5px;
   }
 }
