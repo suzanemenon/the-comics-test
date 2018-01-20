@@ -14,3 +14,5 @@ How to use
 Instructions to edit config-examples.yml (credentials to Marvel Developers account)
 - Rename config-examples.yml to config.yml.
 - Edit the variables according to your credentials. You can find it here https://developer.marvel.com/account
+
+![marvel-comics-test](https://user-images.githubusercontent.com/3688071/35184754-c8cdb7ee-fde0-11e7-8fa2-fed7891707f0.jpg)
